@@ -249,4 +249,6 @@ if #config.plugins > 0 then
   table.insert(default_plugins, { import = config.plugins })
 end
 
+-- Keybinding for oil.nvim
+vim.api.nvim_set_keymap("n", "<leader>e", "<CMD>Oil<CR>", { noremap = true, silent = true }, description="open oil I think")
 require("lazy").setup(default_plugins, config.lazy_nvim)
