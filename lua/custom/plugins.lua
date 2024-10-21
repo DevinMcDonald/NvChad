@@ -36,10 +36,39 @@ local plugins = {
         -- Example: 
         -- columns = { "icon", "size", "mtime" },
         -- win_config = { height = 30, width = 80 },
+        -- -- Customize oil.nvim settings here
+        keymaps = {
+          ["<C-c>"] = "actions.close",  -- Example key mapping to close oil.nvim
+          ["<C-s>"] = "actions.select", -- Example key mapping to select a file
+        },
+        view_options = {
+          -- Customize how oil.nvim displays files, e.g., showing hidden files
+          show_hidden = true,
+        },
+        -- Other configuration options
       })
-      vim.api.nvim_set_keymap("n", "-", "<CMD>Oil<CR>", { noremap = true, silent = true })
-
+      vim.api.nvim_set_keymap("n", "<leader>e", ":Oil<CR>", { noremap = true, silent = true })
     end,
+  },
+  -- Fugitive plugin
+  {
+    "tpope/vim-fugitive",
+    config = function()
+      -- Fugitive keybindings can be added here if needed
+    end,
+  },
+  -- Lazy-loaded lvimdiff plugin
+  {
+    "kdheepak/lazygit.nvim",
+    config = function()
+      -- Example configuration for lazygit
+    end,
+  },-- Disable nvim-tree by setting the `load` key to false
+
+  override = {
+    ["kyazdani42/nvim-tree.lua"] = {
+      load = false
+    }
   },
 }
 return plugins
